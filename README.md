@@ -49,7 +49,6 @@ The assignment covers:
 └── ...
 ```
 
-*(Your actual structure may vary.)*
 
 ---
 
@@ -88,7 +87,7 @@ MONGO_URI=mongodb://127.0.0.1:27017/myDatabase
 ### 4. Start the Server
 
 ```bash
-npm start
+node --watch  --env-file=.env app.js
 ```
 By default, the server listens on `PORT` (e.g., `3000`). Verify in console logs that you see `Server listening on port 3000` and `Connected to MongoDB!`.
 
