@@ -8,10 +8,10 @@ const userRoutes = require('./routes/userRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 
 const app = express();
-app.use(bodyParser.json()); // or app.use(express.json());
+app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect( 'mongodb+srv://jagamohan-panda-personal:Lipun12345@personal-projects.d6nk2.mongodb.net/?retryWrites=true&w=majority&appName=personal-projects',
+mongoose.connect( process.env.DB_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true

@@ -1,11 +1,9 @@
 const Company = require('../models/companyModel');
 const User = require('../models/userModel');
 
-// Helper: Recursively build sub-company data
 async function fetchSubCompanies(companyId) {
   // Find direct children
   const children = await Company.find({ parentCompany: companyId });
-  
   // For each child, recursively find its children
   const subCompanies = [];
   for (const child of children) {
