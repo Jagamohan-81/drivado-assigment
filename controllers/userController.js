@@ -26,6 +26,13 @@ exports.createUser = async (req, res) => {
       role: savedUser.role
     });
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({ message: 'User already exists with this email' });
+    }
+    if (error.name === 'ValidationError') {
+      const messages = Object.values(error.errors).map(err => err.message);
+      return res.status(400).json({ error: messages });
+    }
     console.error(error);
     return res.status(500).json({ error: 'Server error' });
   }
